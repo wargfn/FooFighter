@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<project name="android" basedir=".">
+    <target name="deploy-to-phone" depends="uninstall-apk">
+        <exec executable="${adb}">
+            <arg value="-d"/>
+            <arg value="install"/>
+            <arg value="${apks.loc}/${project.name.versioned}.apk"/>
+        </exec>
+    </target>
+
+    <target name="deploy-to-emulator" depends="uninstall-apk">
+        <exec executable="${adb}">
+            <!--          <arg value="-s"/>
+            <arg value="emulator-5556"/>-->
+            <arg value="-e"/>
+            <arg value="install"/>
+            <arg value="${apks.loc}/${project.name.versioned}.apk"/>
+        </exec>
+    </target>
+
+    <target name="uninstall-apk">
+        <exec executable="${adb}">
+            <arg value="uninstall"/>
+            <arg value="app.${app.package}"/>
+        </exec>
+    </target>
+</project>
