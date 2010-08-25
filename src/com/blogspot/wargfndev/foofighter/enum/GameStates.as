@@ -18,31 +18,25 @@
  * THE SOFTWARE.
  */
 
-package  
+package com.flashartofwar.frogger.enum
 {
-	/**
-	 * ...
-	 * @author wargfndev
-	 * 
-	 * Working On Getting Ant Build Testing Completed, Small little Hello World!! just to prove its working
-	 * 
-	 */
-	
-	//followed template
-	import com.blogspot.wargfndev.foofighter.states.StartState;
-	import org.flixel.*; //Allows you to refer to flixel objects in your code
-	
-	//Motorola Droid Default screen size is 480x 854 3.7" screen 16:9 aspect raitio
-	[SWF(width="800", height="480", backgroundColor="#000000")] //Set the size and color of the Flash file
-	[frame(factoryClass = "Preloader")]
-	
-	public class FooFighter extends FlxGame
-	{
-		//Main Game start GO FOOFIGHTER
-		public function FooFighter()
-		{
-			//Changed to StartState to Menu once going
-			super(800,320,PlayState,1); //Create a new FlxGame object at 800x480 no zoom, then load StartState
-		}
-	}
+    /**
+     * These are the game states and help maintain a consistent state throughout the game.
+     *
+     * Playing - Allows full animation and collision detection
+     * Collision - Flag that a collision has happened and everything needs to pause
+     * Restart - The game is being restarted
+     * Game Over - The game is over and everything is waiting until the PlayState is unloaded.
+     * Death Over - The player's death animation is over and we can move back into Play State.
+     * Level Over - A level has been completed and we wait for the time lable to go away.
+     */
+    public class GameStates
+    {
+        public static const PLAYING:uint = 0; //
+        public static const COLLISION:uint = 1; //
+        public static const RESTART:uint = 2; //
+        public static const GAME_OVER:uint = 3; //
+        public static const DEATH_OVER:uint = 4; //
+        public static const LEVEL_OVER:uint = 5; //
+    }
 }

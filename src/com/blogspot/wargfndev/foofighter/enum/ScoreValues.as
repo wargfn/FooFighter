@@ -18,31 +18,21 @@
  * THE SOFTWARE.
  */
 
-package  
+package
+com.flashartofwar.frogger.enum
 {
-	/**
-	 * ...
-	 * @author wargfndev
-	 * 
-	 * Working On Getting Ant Build Testing Completed, Small little Hello World!! just to prove its working
-	 * 
-	 */
-	
-	//followed template
-	import com.blogspot.wargfndev.foofighter.states.StartState;
-	import org.flixel.*; //Allows you to refer to flixel objects in your code
-	
-	//Motorola Droid Default screen size is 480x 854 3.7" screen 16:9 aspect raitio
-	[SWF(width="800", height="480", backgroundColor="#000000")] //Set the size and color of the Flash file
-	[frame(factoryClass = "Preloader")]
-	
-	public class FooFighter extends FlxGame
-	{
-		//Main Game start GO FOOFIGHTER
-		public function FooFighter()
-		{
-			//Changed to StartState to Menu once going
-			super(800,320,PlayState,1); //Create a new FlxGame object at 800x480 no zoom, then load StartState
-		}
-	}
+    /**
+     * These represent the values when scoring happens.
+     */
+    public class ScoreValues
+    {
+        public static const STEP:uint = 10;
+
+        public static const REACH_HOME:uint = 50;
+
+        public static const FINISH_LEVEL:uint = 1000;
+
+        public static const TIME_BONUS:uint = 10;
+
+    }
 }
