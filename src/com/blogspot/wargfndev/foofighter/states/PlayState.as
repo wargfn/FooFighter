@@ -29,12 +29,14 @@ package com.blogspot.wargfndev.foofighter.states
 	
 	import org.flixel.*;
 	
-	public class PlayState
+	public class PlayState extends FlxState
 	{
 		
-		public function PlayState() 
+		public function PlayState():void
 		{
+			trace('Initializing Single Player PlayState');
 			
+			trace('Initialized Singler Player PlayState');
 		}
 		
 	}
@@ -105,7 +107,8 @@ com.flashartofwar.frogger.states {
 		/**
          * This is the main method responsible for creating all of the game pieces and layout out the level.
          */
-        override public function create():void
+		
+        /*override public function create():void
         {
             // Create the BG sprite
             var bg:FlxSprite = new FlxSprite(0, 0, GameAssets.LevelSprite);
@@ -215,48 +218,48 @@ com.flashartofwar.frogger.states {
             timerBar.origin.x = timerBar.origin.y = 0;
             timerBar.scale.x = 0;
             add(timerBar);
-
+*/
             // Mobile specific code goes here
             /*FDT_IGNORE*/
-            CONFIG::mobile
+//            CONFIG::mobile
             {
             /*FDT_IGNORE*/
-                touchControls = new TouchControls(this, 10, calculateRow(16) + 20, 16);
-				player.touchControls = touchControls;
-                add(touchControls);
+//                touchControls = new TouchControls(this, 10, calculateRow(16) + 20, 16);
+//				player.touchControls = touchControls;
+//                add(touchControls);
             /*FDT_IGNORE*/    
-            }
+//           }
 			/*FDT_IGNORE*/
 			
             // Activate game by setting the correct state
-            gameState = GameStates.PLAYING;
+//            gameState = GameStates.PLAYING;
 
         }
 
         /**
          * Helper function to find the X position of a column on the game's grid
-         * @param value column number
-         * @return returns number based on the value * TILE_SIZE
+//         * @param value column number
+//         * @return returns number based on the value * TILE_SIZE
          */
-        public function calculateColumn(value:int):int
-        {
-            return value * TILE_SIZE;
-        }
+//        public function calculateColumn(value:int):int
+//        {
+//            return value * TILE_SIZE;
+//        }
 
         /**
          * Helper function to find the Y position of a row on the game's grid
          * @param value row number
          * @return returns number based on the value * TILE_SIZE
          */
-        public function calculateRow(value:int):int
+/*        public function calculateRow(value:int):int
         {
             return calculateColumn(value);
         }
-
+*/
         /**
          * This is the main game loop. It goes through, analyzes the game state and performs collision detection.
          */
-        override public function update():void
+/*        override public function update():void
         {
 
             //TODO these first two condition based on hideGameMessageDelay can be cleaned up.
@@ -348,11 +351,11 @@ com.flashartofwar.frogger.states {
             // Update the entire game
             super.update();
         }
-
+*/
         /**
          * This is called when time runs out.
          */
-        private function timeUp():void
+/*        private function timeUp():void
         {
             if (gameState != GameStates.COLLISION)
             {
@@ -360,11 +363,11 @@ com.flashartofwar.frogger.states {
                 killPlayer();
             }
         }
-
+*/
         /**
          * This is called when the player dies in water.
          */
-        private function waterCollision():void
+/*        private function waterCollision():void
         {
             if (gameState != GameStates.COLLISION)
             {
@@ -372,13 +375,13 @@ com.flashartofwar.frogger.states {
                 killPlayer();
             }
         }
-
+*/
         /**
          * This handles collision with a car.
          * @param target this instance that has collided with the player
          * @param player a reference to the player
          */
-        private function carCollision(target:FlxSprite, player:Frog):void
+/*        private function carCollision(target:FlxSprite, player:Frog):void
         {
             if (gameState != GameStates.COLLISION)
             {
@@ -386,13 +389,13 @@ com.flashartofwar.frogger.states {
                 killPlayer();
             }
         }
-
+*/
         /**
          * This handles collision with a home base.
          * @param target this instance that has collided with the player
          * @param player a reference to the player
          */
-        private function baseCollision(target:Home, player:Frog):void
+/*        private function baseCollision(target:Home, player:Frog):void
         {
             // Check to make sure that we have not landed in a occupied base
             if (target.mode != Home.SUCCESS)
@@ -431,11 +434,11 @@ com.flashartofwar.frogger.states {
             }
 
         }
-
+*/
         /**
          * This is called when a level is completed
          */
-        private function levelComplete():void
+/*        private function levelComplete():void
         {
 
             //Increment the score based on
@@ -447,13 +450,13 @@ com.flashartofwar.frogger.states {
             // Hide the player since the level is over and wait for the game to restart itself
             player.visible = false;
         }
-
+*/
         /**
          * This is called when a player is on a log to indicate the frog needs to float
          * @param target this is the instance that collided with the player
          * @param player an instance of the player
          */
-        private function turtleFloat(target:TimerSprite, player:Frog):void
+/*        private function turtleFloat(target:TimerSprite, player:Frog):void
         {
             // Test to see if the target is active. If it is active the player can float. If not the player
             // is in the water 
@@ -466,13 +469,13 @@ com.flashartofwar.frogger.states {
                 waterCollision();
             }
         }
-
+*/
         /**
          * This handles floating the player sprite with the target it is on.
          * @param target this is the instance that collided with the player
          * @param player an instance of the player
          */
-        private function float(target:WrappingSprite, player:Frog):void
+/*        private function float(target:WrappingSprite, player:Frog):void
         {
             playerIsFloating = true;
 
@@ -481,11 +484,11 @@ com.flashartofwar.frogger.states {
                 player.float(target.speed, target.facing);
             }
         }
-
+*/
         /**
          * This handles resetting game values when a frog dies, or a level is completed.
          */
-        private function restart():void
+/*        private function restart():void
         {
             // Make sure the player still has lives to restart
             if (totalLives == 0 && gameState != GameStates.GAME_OVER)
@@ -505,11 +508,11 @@ com.flashartofwar.frogger.states {
                 timeAlmostOverFlag = false;
             }
         }
-
+*/
         /**
          * This loops through the bases and makes sure they are set to empty.
          */
-        private function resetBases():void
+/*        private function resetBases():void
         {
             // Loop though bases and empty them
             for each (var base:Home in bases)
@@ -526,22 +529,22 @@ com.flashartofwar.frogger.states {
             gameMessageGroup.visible = true;
             hideGameMessageDelay = 200;
         }
-
+*/
         /**
          * This kills the player. Game state is set to collision so everything knows to pause and a life is removed.
          */
-        private function killPlayer():void
+/*        private function killPlayer():void
         {
             gameState = GameStates.COLLISION;
             removeLife();
             player.death();
         }
-
+*/
         /**
          * This is called when a game is over. A message is shown and the game locks down until it is ready to go
          * back to the start screen
          */
-        private function gameOver():void
+/*        private function gameOver():void
         {
             gameState = GameStates.GAME_OVER;
 
@@ -553,12 +556,12 @@ com.flashartofwar.frogger.states {
 
             //TODO there is a Game Over sound I need to play here
         }
-
+*/
         /**
          * This loop creates X number of lives.
          * @param value number of lives to create
          */
-        private function createLives(value:int):void
+/*        private function createLives(value:int):void
         {
             var i:int;
 
@@ -567,35 +570,35 @@ com.flashartofwar.frogger.states {
                 addLife();
             }
         }
-
+*/
         /**
          * This adds a life sprite to the display and pushes it to teh lifeSprites array.
          * @param value
          */
-        private function addLife():void
+/*        private function addLife():void
         {
             var flxLife:FlxSprite = new FlxSprite(LIFE_X * totalLives, LIFE_Y, GameAssets.LivesSprite);
             add(flxLife);
             lifeSprites.push(flxLife);
         }
-
+*/
         /**
          * This removes the life sprite from the display and from the lifeSprites array as well.
          * @param value
          */
-        private function removeLife():void
+/*        private function removeLife():void
         {
             var id:int = totalLives - 1;
             var sprite:FlxSprite = lifeSprites[id];
             sprite.kill();
             lifeSprites.splice(id, 1);
         }
-
+*/
         /**
          * A simple getter for Total Lives based on life sprite instances in lifeSprites array.
          * @return
          */
-        private function get totalLives():int
+/*        private function get totalLives():int
         {
             return lifeSprites.length;
         }

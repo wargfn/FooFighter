@@ -10,10 +10,15 @@ package com.blogspot.wargfndev.foofighter.states
 	 */
 	public class Background extends FlxState
 	{
+		// First Background Forest01
+		[Embed(source = '../../../../../../build/assets/Forest01.png')]
+		
 		
 		public function Background():void
 		{
 			trace('Preparing to Load Background');
+			
+			trace('Background Painted');
 			
 		}
 		
