@@ -3,6 +3,7 @@ package
 	/**
 	 * ...
 	 * @author wargfndev
+	 * Initial test window TO BE REMOVED
 	 */
 	import org.flixel.*;
  
