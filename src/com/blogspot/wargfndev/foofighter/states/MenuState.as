@@ -53,6 +53,7 @@ package com.blogspot.wargfndev.foofighter.states
 			}
 			// LOL Way too Many Messages but just in case
 			//trace('Waiting on X Press');
+			
 			super.update();
 			
 		}
