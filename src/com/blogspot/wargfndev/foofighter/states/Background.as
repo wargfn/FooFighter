@@ -18,6 +18,7 @@ package com.blogspot.wargfndev.foofighter.states
 		public var Bamboo:Class;
 		
 		public var _bkg:Class;
+		public var _map:FlxTilemap;
 		
 		
 		public function Background(_bg: Number):void

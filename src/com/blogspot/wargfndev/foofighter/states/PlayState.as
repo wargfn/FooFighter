@@ -31,6 +31,7 @@ package com.blogspot.wargfndev.foofighter.states
 	import com.blogspot.wargfndev.foofighter.states.Background;
 	import com.blogspot.wargfndev.foofighter.states.MenuState;
 	import com.blogspot.wargfndev.foofighter.states.StartState;
+	import com.blogspot.wargfndev.foofighter.sprites.Itachi;
 	
 	public class PlayState extends FlxState
 	{
@@ -38,19 +39,41 @@ package com.blogspot.wargfndev.foofighter.states
 		public var _bg:Number;
 		private var _bkg:Background;
 		
+		private var _Itachi:Itachi;
+		
+		public static var lyrStage:FlxGroup;
+		public static var lyrSprites:FlxGroup;
+		public static var lyrHUD:FlxGroup;
+		
 		
 		public function PlayState():void
 		{
+			super();
+			
 			trace('Initializing Single Player PlayState');
 			FlxState.bgColor = 0x00000000;
+			lyrStage = new FlxGroup;
+			lyrSprites = new FlxGroup;
+			lyrHUD = new FlxGroup;
 			
 			//Okay Time to Call the background Functions;
 			_bg = (Math.random() * 100);
 			trace('Random Number was ' + _bg);
 			_bkg = new Background(_bg);
-			this.add(_bkg);
+			lyrStage.add(_bkg);
 			
-			super.create();
+			trace('Initializing Static Player');
+			_Itachi = new Itachi(1, 130);
+			lyrSprites.add(_Itachi);
+			trace('Initialized Static Player');
+			
+			trace('Adding Elements');
+			this.add(lyrStage);
+			this.add(lyrSprites);
+			this.add(lyrHUD);
+			
+			trace('Done Adding Elements');
+			
 			trace('Initialized Singler Player PlayState');
 		}
 		
@@ -78,6 +101,9 @@ package com.blogspot.wargfndev.foofighter.states
 			//trace('Initialized Main Game Loop');
 			//trace('Waiting on X Press');
 			super.update();
+			//_map.collide(_Itachi);
+			
+			FlxG.followBounds(1, 1, 800 - 1, 400 - 1);
 		}
 		
 		private function onExit():void
