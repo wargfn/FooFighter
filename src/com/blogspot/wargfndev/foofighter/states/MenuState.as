@@ -26,15 +26,15 @@ package com.blogspot.wargfndev.foofighter.states
 			
 			trace('Splash Title');
 			var txt:FlxText
-			txt = new FlxText((FlxG.width / 2) - 192, (FlxG.height / 2) - 35, (FlxG.width / 2), "Foo Fighter")
-			txt.setFormat(null, 36, 0xFFFFFFFF, "center");
+			txt = new FlxText((FlxG.width / 2) - 96 , (FlxG.height / 2) - 16, (FlxG.width / 2), "Foo Fighter")
+			txt.setFormat(null, 16, 0xFFFFFFFF, "center");
 			this.add(txt);
 			trace('Painted Splash Title');	
 			
 			//might skip to Selctions Later
 			trace('Tell Player to Push X to Start');
 			var stxt:FlxText
-			stxt = new FlxText((FlxG.width /2) - 192, FlxG.height - 48, FlxG.height, "Press X to Start");
+			stxt = new FlxText((FlxG.width /2) - 96, FlxG.height - 24, FlxG.height, "Press X to Start");
 			stxt.setFormat(null, 8, 0xFFFFFFFF, "center");
 			this.add(stxt);
 			trace('Start Message Painted');

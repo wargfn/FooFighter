@@ -45,7 +45,8 @@ package com.blogspot.wargfndev.foofighter.states
 			FlxState.bgColor = 0x00000000;
 			
 			//Okay Time to Call the background Functions;
-			_bg = Math.random();
+			_bg = (Math.random() * 100);
+			trace('Random Number was ' + _bg);
 			_bkg = new Background(_bg);
 			this.add(_bkg);
 			
@@ -63,6 +64,16 @@ package com.blogspot.wargfndev.foofighter.states
 				FlxG.flash.start(0xffffffff, 0.75);
 				FlxG.fade.start(0xff000000, 1, onExit);
 			}
+			
+			if (FlxG.keys.justPressed("C"))
+			{
+				trace('C Pressed');
+				FlxG.flash.start(0xffffffff, 0.75);
+				_bg = (Math.random() * 100);
+				trace('Random Number was ' + _bg);
+				_bkg = new Background(_bg);
+				this.add(_bkg);
+			}
 			// LOL Way too Many Messages but just in case
 			//trace('Initialized Main Game Loop');
 			//trace('Waiting on X Press');
@@ -74,6 +85,8 @@ package com.blogspot.wargfndev.foofighter.states
 			trace('Returning to MenuState');
 			FlxG.state = new MenuState();
 		}
+		
+		
 	}
 
 }
