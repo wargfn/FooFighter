@@ -28,17 +28,52 @@ package com.blogspot.wargfndev.foofighter.states
 	 */
 	
 	import org.flixel.*;
+	import com.blogspot.wargfndev.foofighter.states.Background;
+	import com.blogspot.wargfndev.foofighter.states.MenuState;
+	import com.blogspot.wargfndev.foofighter.states.StartState;
 	
 	public class PlayState extends FlxState
 	{
 		
+		public var _bg:Number;
+		private var _bkg:Background;
+		
+		
 		public function PlayState():void
 		{
 			trace('Initializing Single Player PlayState');
+			FlxState.bgColor = 0x00000000;
 			
+			//Okay Time to Call the background Functions;
+			_bg = Math.random();
+			_bkg = new Background(_bg);
+			this.add(_bkg);
+			
+			super.create();
 			trace('Initialized Singler Player PlayState');
 		}
 		
+		override public function update():void
+		{
+			//trace('Initializing Main Game Loop');
+			
+			if (FlxG.keys.pressed("X"))
+			{
+				trace('X Pressed');
+				FlxG.flash.start(0xffffffff, 0.75);
+				FlxG.fade.start(0xff000000, 1, onExit);
+			}
+			// LOL Way too Many Messages but just in case
+			//trace('Initialized Main Game Loop');
+			//trace('Waiting on X Press');
+			super.update();
+		}
+		
+		private function onExit():void
+		{
+			trace('Returning to MenuState');
+			FlxG.state = new MenuState();
+		}
 	}
 
 }

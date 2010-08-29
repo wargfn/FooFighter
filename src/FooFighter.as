@@ -35,7 +35,7 @@ package
 	import org.flixel.*; //Allows you to refer to flixel objects in your code
 	
 	//Motorola Droid Default screen size is 480x 854 3.7" screen 16:9 aspect raitio
-	[SWF(width="800", height="320", backgroundColor="#000000")] //Set the size and color of the Flash file
+	[SWF(width="800", height="380", backgroundColor="#000000")] //Set the size and color of the Flash file
 	[frame(factoryClass = "Preloader")]
 	
 	public class FooFighter extends FlxGame
@@ -45,7 +45,7 @@ package
 		{
 			//Changed to StartState to Menu once going
 			trace('Initailzing Game Window');
-			super(800, 320, MenuState, 1); //Create a new FlxGame object at 800x320 no zoom, then load StartState
+			super(800, 400, MenuState, 1); //Create a new FlxGame object at 800x320 no zoom, then load StartState
 			trace('Initailized Game Window');
 		}
 	}
