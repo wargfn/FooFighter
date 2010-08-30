@@ -43,7 +43,6 @@ package com.blogspot.wargfndev.foofighter.states
 		[Embed(source = '../../../../../../build/assets/map1.txt', mimeType = "application/octet-stream")]
 		private var DataMap:String;
 		
-	
 		public var _bg:Number;
 		private var _bkg:Background;
 		public var _map:FlxTilemap;
@@ -70,11 +69,13 @@ package com.blogspot.wargfndev.foofighter.states
 			_bg = (Math.random() * 100);
 			FlxG.log('Random Number was ' + _bg);
 			_bkg = new Background(_bg);
-			//_map = new FlxTilemap();
-			//FlxG.log('drawing Tilemaps')
-			//_map.loadMap(DataMap, ImgTiles, 8, 8);
-			//_map.drawIndex = 1;
-			//_map.collideIndex = 1;
+			_map = new FlxTilemap();
+			FlxG.log('drawing Tilemaps')
+			_map.loadMap(DataMap, ImgTiles, 8, 8);
+			_map.drawIndex = 1;
+			_map.collideIndex = 1;
+			add(_map);
+			
 			FlxG.log('Tilemaps might be where its at but it dont work')
 			
 			FlxG.log('Do things the old way');
@@ -85,7 +86,7 @@ package com.blogspot.wargfndev.foofighter.states
 			lyrSprites.add(_Floor);
 			
 			//lyrStage.add(_bkg);
-			lyrStage.add(_map);
+			//lyrStage.add(_map);
 			
 			
 			
@@ -132,7 +133,7 @@ package com.blogspot.wargfndev.foofighter.states
 			//FlxG.log('Initialized Main Game Loop');
 			//FlxG.log('Waiting on X Press');
 			
-//			_map.collide(_Itachi);
+			_map.collide(_Itachi);
 			FlxU.collide(_Floor, _Itachi);
 			_Floor.collide(_Itachi);
 			
