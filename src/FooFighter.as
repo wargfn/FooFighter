@@ -46,6 +46,8 @@ package
 			//Changed to StartState to Menu once going
 			trace('Initailzing Game Window');
 			super(400, 200, MenuState, 2); //Create a new FlxGame object at 800x320 no zoom, then load StartState
+			help("Jump", "Shoot", "Nothing");
+			userDefaultVolueControls(true);
 			trace('Initailized Game Window');
 		}
 	}
