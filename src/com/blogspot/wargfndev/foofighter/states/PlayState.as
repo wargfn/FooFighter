@@ -36,8 +36,15 @@ package com.blogspot.wargfndev.foofighter.states
 	public class PlayState extends FlxState
 	{
 		
+		[Embed(source = '../../../../../../build/assets/tiles.png')]
+		private var ImgTiles:Class;
+		
+		[Embed(source = '../../../../../../build/assets/map1.txt', mimeType = "application/octet-stream")]
+		private var DataMap:String;
+		
 		public var _bg:Number;
 		private var _bkg:Background;
+		public var _map:FlxTilemap;
 		
 		private var _Itachi:Itachi;
 		
@@ -60,7 +67,13 @@ package com.blogspot.wargfndev.foofighter.states
 			_bg = (Math.random() * 100);
 			trace('Random Number was ' + _bg);
 			_bkg = new Background(_bg);
-			lyrStage.add(_bkg);
+			_map = new FlxTilemap();
+			_map.loadMap(DataMap, ImgTiles, 8, 8);
+			_map.drawIndex = 1;
+			_map.collideIndex = 1;
+			
+			//lyrStage.add(_bkg);
+			lyrStage.add(_map);
 			
 			trace('Initializing Static Player');
 			_Itachi = new Itachi(1, 130);
@@ -101,7 +114,7 @@ package com.blogspot.wargfndev.foofighter.states
 			//trace('Initialized Main Game Loop');
 			//trace('Waiting on X Press');
 			super.update();
-			//_map.collide(_Itachi);
+			_map.collide(_Itachi);
 			
 			FlxG.followBounds(1, 1, 800 - 1, 400 - 1);
 		}

@@ -17,10 +17,11 @@ package com.blogspot.wargfndev.foofighter.states
 		[Embed(source = '../../../../../../build/assets/Bamboo.png')]
 		public var Bamboo:Class;
 		
+		
+		
 		public var _bkg:Class;
-		public var _map:FlxTilemap;
-		
-		
+	
+			
 		public function Background(_bg: Number):void
 		{
 			trace('Preparing to Load Background');
@@ -42,9 +43,11 @@ package com.blogspot.wargfndev.foofighter.states
 			}
 			
 			super(0, 0);
+			
 			loadGraphic(_bkg, false, false, 400, 200);
 			trace('Background Painted');
 			
+						
 		}
 		
 		override public function update():void
