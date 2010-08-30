@@ -14,7 +14,7 @@
   <!-- Other classes to be compiled into your SWF -->
   <classpaths>
     <class path="src" />
-    <class path="..\..\Android\flixel_v2.35" />
+    <class path="..\..\Android\flixel_v2.35_beta" />
   </classpaths>
   <!-- Build options -->
   <build>

@@ -17,14 +17,13 @@ package com.blogspot.wargfndev.foofighter.states
 		[Embed(source = '../../../../../../build/assets/Bamboo.png')]
 		public var Bamboo:Class;
 		
-		
-		
 		public var _bkg:Class;
+		
 	
 			
 		public function Background(_bg: Number):void
 		{
-			trace('Preparing to Load Background');
+			FlxG.log('Preparing to Load Background');
 			if (_bg >= 75)
 			{
 				_bkg = Forest01;
@@ -45,8 +44,9 @@ package com.blogspot.wargfndev.foofighter.states
 			super(0, 0);
 			
 			loadGraphic(_bkg, false, false, 400, 200);
-			trace('Background Painted');
+			FlxG.log('Background Painted');
 			
+					
 						
 		}
 		

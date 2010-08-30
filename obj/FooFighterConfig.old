@@ -18,7 +18,7 @@
     </define>
     <source-path append="true">
       <path-element>C:\Users\Public\FlashWorkspace\FooFighter\src</path-element>
-      <path-element>C:\Users\Public\Android\flixel_v2.35</path-element>
+      <path-element>C:\Users\Public\Android\flixel_v2.35_beta</path-element>
       <path-element>C:\Program Files (x86)\FlashDevelop\Library\AS3\classes</path-element>
     </source-path>
   </compiler>

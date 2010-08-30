@@ -32,6 +32,7 @@ package com.blogspot.wargfndev.foofighter.states
 	import com.blogspot.wargfndev.foofighter.states.MenuState;
 	import com.blogspot.wargfndev.foofighter.states.StartState;
 	import com.blogspot.wargfndev.foofighter.sprites.Itachi;
+	import com.blogspot.wargfndev.foofighter.sprites.Floor;
 	
 	public class PlayState extends FlxState
 	{
@@ -42,11 +43,13 @@ package com.blogspot.wargfndev.foofighter.states
 		[Embed(source = '../../../../../../build/assets/map1.txt', mimeType = "application/octet-stream")]
 		private var DataMap:String;
 		
+	
 		public var _bg:Number;
 		private var _bkg:Background;
 		public var _map:FlxTilemap;
 		
 		private var _Itachi:Itachi;
+		private var _Floor:Floor;
 		
 		public static var lyrStage:FlxGroup;
 		public static var lyrSprites:FlxGroup;
@@ -57,7 +60,7 @@ package com.blogspot.wargfndev.foofighter.states
 		{
 			super();
 			
-			trace('Initializing Single Player PlayState');
+			FlxG.log('Initializing Single Player PlayState');
 			FlxState.bgColor = 0x00000000;
 			lyrStage = new FlxGroup;
 			lyrSprites = new FlxGroup;
@@ -65,66 +68,84 @@ package com.blogspot.wargfndev.foofighter.states
 			
 			//Okay Time to Call the background Functions;
 			_bg = (Math.random() * 100);
-			trace('Random Number was ' + _bg);
+			FlxG.log('Random Number was ' + _bg);
 			_bkg = new Background(_bg);
-			_map = new FlxTilemap();
-			_map.loadMap(DataMap, ImgTiles, 8, 8);
-			_map.drawIndex = 1;
-			_map.collideIndex = 1;
+			//_map = new FlxTilemap();
+			//FlxG.log('drawing Tilemaps')
+			//_map.loadMap(DataMap, ImgTiles, 8, 8);
+			//_map.drawIndex = 1;
+			//_map.collideIndex = 1;
+			FlxG.log('Tilemaps might be where its at but it dont work')
+			
+			FlxG.log('Do things the old way');
+			//_map.add(this.add(new FlxBlock(0, 200 - 16, 400, 8, ImgTiles)));
+			
+			FlxG.log('Did this work for me?');
+			_Floor = new Floor();
+			lyrSprites.add(_Floor);
 			
 			//lyrStage.add(_bkg);
 			lyrStage.add(_map);
 			
-			trace('Initializing Static Player');
+			
+			
+			
+			lyrStage.add(_map);
+			FlxG.log('Titles at bottom');
+			
+			FlxG.log('Initializing Static Player');
 			_Itachi = new Itachi(1, 130);
 			lyrSprites.add(_Itachi);
-			trace('Initialized Static Player');
+			FlxG.log('Initialized Static Player');
 			
-			trace('Adding Elements');
+			FlxG.log('Adding Elements');
 			this.add(lyrStage);
 			this.add(lyrSprites);
 			this.add(lyrHUD);
 			
-			trace('Done Adding Elements');
+			FlxG.log('Done Adding Elements');
 			
-			trace('Initialized Singler Player PlayState');
+			FlxG.log('Initialized Singler Player PlayState');
 		}
 		
 		override public function update():void
 		{
-			//trace('Initializing Main Game Loop');
+			//FlxG.log('Initializing Main Game Loop');
 			
 			if (FlxG.keys.pressed("X"))
 			{
-				trace('X Pressed');
+				FlxG.log('X Pressed');
 				FlxG.flash.start(0xffffffff, 0.75);
 				FlxG.fade.start(0xff000000, 1, onExit);
 			}
 			
 			if (FlxG.keys.justPressed("C"))
 			{
-				trace('C Pressed');
+				FlxG.log('C Pressed');
 				FlxG.flash.start(0xffffffff, 0.75);
 				_bg = (Math.random() * 100);
-				trace('Random Number was ' + _bg);
+				FlxG.log('Random Number was ' + _bg);
 				_bkg = new Background(_bg);
 				this.add(_bkg);
 			}
 			// LOL Way too Many Messages but just in case
-			//trace('Initialized Main Game Loop');
-			//trace('Waiting on X Press');
+			//FlxG.log('Initialized Main Game Loop');
+			//FlxG.log('Waiting on X Press');
+			
+//			_map.collide(_Itachi);
+			FlxU.collide(_Floor, _Itachi);
+			_Floor.collide(_Itachi);
+			
 			super.update();
-			_map.collide(_Itachi);
 			
 			FlxG.followBounds(1, 1, 800 - 1, 400 - 1);
 		}
 		
 		private function onExit():void
 		{
-			trace('Returning to MenuState');
+			FlxG.log('Returning to MenuState');
 			FlxG.state = new MenuState();
 		}
-		
 		
 	}
 
@@ -604,7 +625,7 @@ com.flashartofwar.frogger.states {
             // Loop though bases and empty them
             for each (var base:Home in bases)
             {
-                trace("base", base);
+                FlxG.log("base", base);
                 base.empty();
             }
 
