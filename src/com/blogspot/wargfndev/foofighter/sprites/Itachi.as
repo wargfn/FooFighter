@@ -45,7 +45,7 @@ package com.blogspot.wargfndev.foofighter.sprites
 			
 			//Animation time, and let me tell you something....
 			//starting animations, woot
-			addAnimation("portrait", [0], 25);
+			addAnimation("portrait", [0, 1, 2, 3, 4], 25);
 			addAnimation("idle", [5, 6, 7], 10);
 			addAnimation("bored", [5, 6, 7, 8, 7, 6, 5], 20);
 			addAnimation("duck", [5, 9, 10], 10);
@@ -96,6 +96,32 @@ package com.blogspot.wargfndev.foofighter.sprites
 				velocity.y = -_jump_power;
 			}
 			
+			//Test more Animations PLEASE
+			if (FlxG.keys.justPressed("DOWN")
+			{
+				play("duck");
+			}
+			
+			if (FlxG.keys.justPressed("Z")
+			{
+				play("punch");
+			}
+			
+			if (FlxG.keys.justPressed("X")
+			{
+				play("kick");
+			}
+			
+			if (FlxG.keys.justPressed("C")
+			{
+				play("spca");
+			}
+			
+			if (FlxG.keys.justPressed("V")
+			{
+				play("spcb");
+			}
+			
 			//Play Some ANIMATIONS PLEASE
 			if (_hurt_counter > 0)
 			{
@@ -109,7 +135,7 @@ package com.blogspot.wargfndev.foofighter.sprites
 				}
 				else
 				{
-					if (velocity.x > 50)
+					if (velocity.x > 75)
 					{
 						play("run");
 					}

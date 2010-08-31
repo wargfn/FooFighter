@@ -41,11 +41,12 @@ package com.blogspot.wargfndev.foofighter.states
 		private var ImgTiles:Class;
 		
 		[Embed(source = '../../../../../../build/assets/map1.txt', mimeType = "application/octet-stream")]
-		private var DataMap:String;
+		private var DataMap:Class;
 		
 		public var _bg:Number;
-		private var _bkg:Background;
-		public var _map:FlxTilemap;
+		protected var _bkg:Background;
+		protected var _map:FlxTilemap;
+		protected var _blocks:FlxGroup = new FlxGroup; 
 		
 		private var _Itachi:Itachi;
 		private var _Floor:Floor;
@@ -69,12 +70,12 @@ package com.blogspot.wargfndev.foofighter.states
 			_bg = (Math.random() * 100);
 			FlxG.log('Random Number was ' + _bg);
 			_bkg = new Background(_bg);
-			_map = new FlxTilemap();
 			FlxG.log('drawing Tilemaps')
-			_map.loadMap(DataMap, ImgTiles, 8, 8);
-			_map.drawIndex = 1;
-			_map.collideIndex = 1;
-			add(_map);
+			_map = new FlxTilemap();
+			_map.loadMap(new DataMap, ImgTiles, 8, 8);
+			_blocks.add(_map);
+			FlxG.log(_map)
+			add(_blocks);
 			
 			FlxG.log('Tilemaps might be where its at but it dont work')
 			
@@ -83,11 +84,11 @@ package com.blogspot.wargfndev.foofighter.states
 			
 			FlxG.log('Did this work for me?');
 			_Floor = new Floor();
-			lyrSprites.add(_Floor);
 			
-			//lyrStage.add(_bkg);
-			//lyrStage.add(_map);
 			
+			lyrStage.add(_bkg);
+			lyrStage.add(_map);
+			lyrStage.add(_bkg);
 			
 			
 			
@@ -95,9 +96,11 @@ package com.blogspot.wargfndev.foofighter.states
 			FlxG.log('Titles at bottom');
 			
 			FlxG.log('Initializing Static Player');
-			_Itachi = new Itachi(1, 130);
+			_Itachi = new Itachi(9, 128);
 			lyrSprites.add(_Itachi);
+			lyrSprites.add(_Floor);
 			FlxG.log('Initialized Static Player');
+			
 			
 			FlxG.log('Adding Elements');
 			this.add(lyrStage);
@@ -113,16 +116,23 @@ package com.blogspot.wargfndev.foofighter.states
 		{
 			//FlxG.log('Initializing Main Game Loop');
 			
-			if (FlxG.keys.pressed("X"))
+			if (FlxG.keys.pressed("W"))
 			{
-				FlxG.log('X Pressed');
+				FlxG.log('W Pressed');
+				FlxG.showBounds = !FlxG.showBounds;
+				
+			}
+			
+			if (FlxG.keys.pressed("E"))
+			{
+				FlxG.log('E Pressed');
 				FlxG.flash.start(0xffffffff, 0.75);
 				FlxG.fade.start(0xff000000, 1, onExit);
 			}
 			
-			if (FlxG.keys.justPressed("C"))
+			if (FlxG.keys.justPressed("R"))
 			{
-				FlxG.log('C Pressed');
+				FlxG.log('R Pressed');
 				FlxG.flash.start(0xffffffff, 0.75);
 				_bg = (Math.random() * 100);
 				FlxG.log('Random Number was ' + _bg);
