@@ -53,7 +53,7 @@ package com.blogspot.wargfndev.foofighter.sprites
 			addAnimation("walk", [12, 13, 14, 15, 16, 17], 6);
 			addAnimation("run", [18, 19, 20, 21, 22, 23], 6);
 			addAnimation("jump", [5, 24, 25, 26, 27], 6);
-			addAnimation("punch", [28, 29, 30, 31], 4);
+			addAnimation("punch", [28, 28, 29, 29, 30, 30, 30, 31, 31], 8);
 			addAnimation("kick", [32, 33, 34, 34, 35, 35, 35, 35, 36, 36], 10);
 			addAnimation("spca", [37, 38, 39, 40, 41, 42, 43], 7);
 			addAnimation("spcb", [44, 45, 46, 47, 48, 49, 50], 7);
