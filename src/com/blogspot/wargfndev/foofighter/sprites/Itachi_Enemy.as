@@ -236,6 +236,10 @@ package com.blogspot.wargfndev.foofighter.sprites
 			return super.hurt(Damage);
 		}
 		
-		
+		override public function kill():void
+		{
+			_hurt_counter = 10;
+			return super.kill();
+		}
 	}
 }

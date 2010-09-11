@@ -159,7 +159,8 @@ package com.blogspot.wargfndev.foofighter.states
 			FlxU.collide(_Floor, _Itachi_Enemy);
 			_Floor.collide(_Itachi_Enemy);
 			
-			FlxU.collide(_Itachi, _Itachi_Enemy);
+			//FlxU.collide(_Itachi, _Itachi_Enemy);
+			FlxU.overlap(_Itachi, _Itachi_Enemy, DetermineHit);
 			
 			super.update();
 			
@@ -180,6 +181,12 @@ package com.blogspot.wargfndev.foofighter.states
  
 			//Update HUD
 			//lyrHUD._txtTimeN.text = ""+FlxU.floor(_numTime);
+		}
+		
+		private function DetermineHit(_Itachi:FlxSprite, _Itachi_Enemy:FlxSprite):void
+		{
+			_Itachi_Enemy.hurt(2);
+			_Itachi.hurt(1);
 		}
  
 	}
