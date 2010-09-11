@@ -14,16 +14,16 @@
     </define>
     <define append="true">
       <name>CONFIG::timeStamp</name>
-      <value>'8/30/2010'</value>
+      <value>'9/11/2010'</value>
     </define>
     <source-path append="true">
-      <path-element>C:\Users\Public\FlashWorkspace\FooFighter\src</path-element>
-      <path-element>C:\Users\Public\Android\flixel_v2.35_beta</path-element>
+      <path-element>C:\Users\Ron\FlashDevelopWorkspace\FooFighter\src</path-element>
+      <path-element>C:\Users\Public\Public Programming\flixel_v2.35</path-element>
       <path-element>C:\Program Files (x86)\FlashDevelop\Library\AS3\classes</path-element>
     </source-path>
   </compiler>
   <file-specs>
-    <path-element>C:\Users\Public\FlashWorkspace\FooFighter\src\FooFighter.as</path-element>
+    <path-element>C:\Users\Ron\FlashDevelopWorkspace\FooFighter\src\FooFighter.as</path-element>
   </file-specs>
   <default-background-color>#FFFFFF</default-background-color>
   <default-frame-rate>30</default-frame-rate>

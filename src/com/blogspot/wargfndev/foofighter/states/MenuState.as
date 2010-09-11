@@ -12,7 +12,7 @@ package com.blogspot.wargfndev.foofighter.states
 	 	
 	public class MenuState extends FlxState
 	{
-		[Embed(source="../../../../../../build/assets/mangat.ttf", fontName = "Mangat", fontWeight = "normal", advancedAntiAliasing = "true", mimeType = "application/x-font-truetype", embedAsCFF = "false")] 
+		[Embed(source="../../../../../../build/assets/mangat.ttf", fontName = "Mangat", fontWeight = "normal", advancedAntiAliasing = "true", mimeType = "application/x-font-truetype")] 
 		private var Mangat:String;
 		
 		[Embed(source = '../../../../../../build/assets/emulogic.ttf', fontFamily = "NES")]
@@ -25,17 +25,20 @@ package com.blogspot.wargfndev.foofighter.states
 			FlxState.bgColor = 0xFF0000AA;
 			
 			FlxG.log('Splash Title');
-			var txt:FlxText
+			
+			// doesnt work
+			var txt:FlxText;
 			txt = new FlxText((FlxG.width / 2) - 96 , (FlxG.height / 2) - 16, (FlxG.width / 2), "Foo Fighter")
-			txt.setFormat(null, 16, 0xFFFFFFFF, "center");
+			txt.setFormat("Mangat", 24, 0xFFFFFFFF, "center");
 			this.add(txt);
+		
 			FlxG.log('Painted Splash Title');	
 			
 			//might skip to Selctions Later
 			FlxG.log('Tell Player to Push X to Start');
 			var stxt:FlxText
 			stxt = new FlxText((FlxG.width /2) - 96, FlxG.height - 24, FlxG.height, "Press X to Start");
-			stxt.setFormat(null, 8, 0xFFFFFFFF, "center");
+			stxt.setFormat("Mangat", 10, 0xFFFFFFFF, "center");
 			this.add(stxt);
 			FlxG.log('Start Message Painted');
 			

@@ -27,11 +27,13 @@ package com.blogspot.wargfndev.foofighter.states
 	 *
 	 */
 	
+	
 	import org.flixel.*;
 	import com.blogspot.wargfndev.foofighter.states.Background;
 	import com.blogspot.wargfndev.foofighter.states.MenuState;
 	import com.blogspot.wargfndev.foofighter.states.StartState;
 	import com.blogspot.wargfndev.foofighter.sprites.Itachi;
+	import com.blogspot.wargfndev.foofighter.sprites.Itachi_Enemy;
 	import com.blogspot.wargfndev.foofighter.sprites.Floor;
 	
 	public class PlayState extends FlxState
@@ -49,7 +51,10 @@ package com.blogspot.wargfndev.foofighter.states
 		protected var _blocks:FlxGroup = new FlxGroup; 
 		
 		private var _Itachi:Itachi;
+		private var _Itachi_Enemy:Itachi_Enemy;
 		private var _Floor:Floor;
+		
+		public var _numTime:Number = 400;
 		
 		public static var lyrStage:FlxGroup;
 		public static var lyrSprites:FlxGroup;
@@ -97,8 +102,8 @@ package com.blogspot.wargfndev.foofighter.states
 			
 			FlxG.log('Initializing Static Player');
 			_Itachi = new Itachi(9, 128);
-			lyrSprites.add(_Itachi);
 			lyrSprites.add(_Floor);
+			lyrSprites.add(_Itachi);
 			FlxG.log('Initialized Static Player');
 			
 			
@@ -108,6 +113,10 @@ package com.blogspot.wargfndev.foofighter.states
 			this.add(lyrHUD);
 			
 			FlxG.log('Done Adding Elements');
+			
+			FlxG.log('Adding Punching Bag');
+			_Itachi_Enemy = new Itachi_Enemy(328, 128);
+			lyrSprites.add(_Itachi_Enemy);
 			
 			FlxG.log('Initialized Singler Player PlayState');
 		}
@@ -146,6 +155,11 @@ package com.blogspot.wargfndev.foofighter.states
 			_map.collide(_Itachi);
 			FlxU.collide(_Floor, _Itachi);
 			_Floor.collide(_Itachi);
+			_map.collide(_Itachi_Enemy);
+			FlxU.collide(_Floor, _Itachi_Enemy);
+			_Floor.collide(_Itachi_Enemy);
+			
+			FlxU.collide(_Itachi, _Itachi_Enemy);
 			
 			super.update();
 			
@@ -158,6 +172,16 @@ package com.blogspot.wargfndev.foofighter.states
 			FlxG.state = new MenuState();
 		}
 		
+		//runs the clock
+		public function runTime():void
+		{
+			//Reduce Number
+			_numTime -= FlxG.elapsed;
+ 
+			//Update HUD
+			//lyrHUD._txtTimeN.text = ""+FlxU.floor(_numTime);
+		}
+ 
 	}
 
 }

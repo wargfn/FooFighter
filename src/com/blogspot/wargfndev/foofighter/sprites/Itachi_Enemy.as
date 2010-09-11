@@ -10,7 +10,7 @@ package com.blogspot.wargfndev.foofighter.sprites
 	 */
 	import org.flixel.*;
 	
-	public class Itachi extends FlxSprite
+	public class Itachi_Enemy extends FlxSprite
 	{
 		[Embed(source = '../../../../../../build/assets/itachi_sheet.png')]
 		public var _Itachi:Class;
@@ -22,7 +22,7 @@ package com.blogspot.wargfndev.foofighter.sprites
 		public var counter:Number = 0;
 		
 		
-		public function Itachi(X:Number, Y:Number):void
+		public function Itachi_Enemy(X:Number, Y:Number):void
 		{
 			trace('Player Itachi Initizalizing');
 			super(X, Y);
@@ -82,7 +82,12 @@ package com.blogspot.wargfndev.foofighter.sprites
 			
 			}
 			
-			if (FlxG.keys.LEFT)
+			//Add AI Element here
+			
+			
+			
+			//Old Movement Elements Here
+			/*if (FlxG.keys.LEFT)
 			{
 				facing = LEFT;
 				velocity.x -= _move_speed * FlxG.elapsed;
@@ -128,7 +133,7 @@ package com.blogspot.wargfndev.foofighter.sprites
 				play("spcb");
 				_attack_indicator = 4;
 			}
-			
+			*/
 			//counter to return to idle
 			/*counter += FlxG.elapsed;
 				if ( counter >= 1.5 )
